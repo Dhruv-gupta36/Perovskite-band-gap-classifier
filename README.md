@@ -6,7 +6,7 @@
 
 ## Problem Statement
 
-Perovskites (ABX₃ structures) are a critical class of materials in energy, electronics, and photovoltaics. A key property is whether a compound is **metallic** (band gap = 0 eV) or **semiconducting** (band gap > 0 eV). Experimental measurement is expensive and time-consuming. This project builds a machine learning classifier trained on quantum-chemical descriptors to predict this property directly from atomic and electronic features — enabling rapid computational screening of candidate materials.
+Perovskites (ABX₃ structures) are a critical class of materials in energy, electronics and photovoltaics. A key property is whether a compound is **metallic** (band gap = 0 eV) or **semiconducting** (band gap > 0 eV). Experimental measurement is expensive and time-consuming. This project builds a machine learning classifier trained on quantum-chemical descriptors to predict this property directly from atomic and electronic features — enabling rapid computational screening of candidate materials.
 
 ---
 
@@ -46,31 +46,6 @@ Perovskites (ABX₃ structures) are a critical class of materials in energy, ele
 **SVM CV ROC-AUC (5-fold):** `0.861 ± 0.009`
 
 SVM was selected as the final model due to its strong generalization, consistent cross-validation performance, and interpretability for a classification boundary in high-dimensional PCA space.
-
----
-
-## Project Structure
-
-```
-perovskite_ml/
-├── data/
-│   └── dataset_excavate.csv       # Raw dataset
-├── models/                        # Saved model artifacts (generated after training)
-│   ├── svm_model.pkl
-│   ├── scaler.pkl
-│   ├── pca.pkl
-│   └── feature_cols.pkl
-├── src/
-│   ├── preprocessing.py           # Data loading, feature engineering, scaling
-│   ├── eda.py                     # Correlation, PCA analysis utilities
-│   └── model.py                   # Training, evaluation, cross-validation
-├── api/
-│   ├── app.py                     # FastAPI application
-│   └── example_request.py         # Sample API client
-├── main.py                        # End-to-end training pipeline
-├── requirements.txt
-└── README.md
-```
 
 ---
 
