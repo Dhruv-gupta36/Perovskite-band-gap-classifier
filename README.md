@@ -25,13 +25,13 @@ Perovskites (ABX₃ structures) are a critical class of materials in energy, ele
 
 ## Approach
 
-1. **EDA** — correlation analysis, class distribution, PCA variance study
-2. **Feature Engineering** — 6 derived features (electronegativity differences, HOMO-LUMO gap proxies, ionic radii asymmetry)
-3. **Preprocessing** — StandardScaler normalization
-4. **Dimensionality Reduction** — PCA retaining 95% variance (38 → 20 components)
-5. **Modeling** — SVM (RBF kernel) as primary; compared against Random Forest and Logistic Regression
-6. **Evaluation** — Accuracy, F1, ROC-AUC; 5-fold stratified cross-validation
-7. **Deployment** — FastAPI REST endpoint for inference
+1. **EDA**: correlation analysis, class distribution, PCA variance study
+2. **Feature Engineering**: 6 derived features (electronegativity differences, HOMO-LUMO gap proxies, ionic radii asymmetry)
+3. **Preprocessing**: StandardScaler normalization
+4. **Dimensionality Reduction**: PCA retaining 95% variance (38 → 20 components)
+5. **Modeling**: SVM (RBF kernel) as primary; compared against Random Forest and Logistic Regression
+6. **Evaluation**: Accuracy, F1, ROC-AUC; 5-fold stratified cross-validation
+7. **Deployment**:FastAPI REST endpoint for inference
 
 ---
 
