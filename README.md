@@ -25,13 +25,13 @@ Perovskites (ABX₃ structures) are a critical class of materials in energy, ele
 
 ## Approach
 
-1. **EDA** — correlation analysis, class distribution, PCA variance study
-2. **Feature Engineering** — 6 derived features (electronegativity differences, HOMO-LUMO gap proxies, ionic radii asymmetry)
-3. **Preprocessing** — StandardScaler normalization
-4. **Dimensionality Reduction** — PCA retaining 95% variance (38 → 20 components)
-5. **Modeling** — SVM (RBF kernel) as primary; compared against Random Forest and Logistic Regression
-6. **Evaluation** — Accuracy, F1, ROC-AUC; 5-fold stratified cross-validation
-7. **Deployment** — FastAPI REST endpoint for inference
+1. **EDA**: correlation analysis, class distribution, PCA variance study
+2. **Feature Engineering**: 6 derived features (electronegativity differences, HOMO-LUMO gap proxies, ionic radii asymmetry)
+3. **Preprocessing**: StandardScaler normalization
+4. **Dimensionality Reduction**: PCA retaining 95% variance (38 → 20 components)
+5. **Modeling**: SVM (RBF kernel) as primary; compared against Random Forest and Logistic Regression
+6. **Evaluation**: Accuracy, F1, ROC-AUC; 5-fold stratified cross-validation
+7. **Deployment**:FastAPI REST endpoint for inference
 
 ---
 
@@ -46,6 +46,31 @@ Perovskites (ABX₃ structures) are a critical class of materials in energy, ele
 **SVM CV ROC-AUC (5-fold):** `0.861 ± 0.009`
 
 SVM was selected as the final model due to its strong generalization, consistent cross-validation performance, and interpretability for a classification boundary in high-dimensional PCA space.
+
+---
+
+## Project Structure
+
+```
+perovskite_ml/
+├── data/
+│   └── dataset_excavate.csv       # Raw dataset
+├── models/                        # Saved model artifacts (generated after training)
+│   ├── svm_model.pkl
+│   ├── scaler.pkl
+│   ├── pca.pkl
+│   └── feature_cols.pkl
+├── src/
+│   ├── preprocessing.py           # Data loading, feature engineering, scaling
+│   ├── eda.py                     # Correlation, PCA analysis utilities
+│   └── model.py                   # Training, evaluation, cross-validation
+├── api/
+│   ├── app.py                     # FastAPI application
+│   └── example_request.py         # Sample API client
+├── main.py                        # End-to-end training pipeline
+├── requirements.txt
+└── README.md
+```
 
 ---
 
@@ -130,7 +155,7 @@ curl -X POST http://localhost:8000/predict \
 
 ## Future Improvements
 
-- Hyperparameter tuning with `GridSearchCV` or `Optuna`
+- Hyperparameter tuning with `GridSearchCV.`
 - Multi-class regression: predict the actual band gap value (eV)
 - SHAP explainability for feature importance post-PCA
 - Docker containerization for deployment
